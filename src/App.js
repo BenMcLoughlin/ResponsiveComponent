@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import ResponsiveOriginal from "./ResponsiveOriginal"
+import ResponsiveWithMediaQueries from "./ResponsiveWithMediaQueries"
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ResponsiveOriginal minWidth="lg">{(matches) => (matches ? <div>BIG V1.</div> : <div>SMALL V1.</div>)}</ResponsiveOriginal>
+
+        <ResponsiveWithMediaQueries minWidth="md">
+          {(matches) => {
+            return matches ? <div>BIG V2.</div> : <div>SMALL V2.</div>
+          }}
+        </ResponsiveWithMediaQueries>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
